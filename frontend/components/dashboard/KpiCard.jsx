@@ -7,11 +7,11 @@ export default function KpiCard({ type, data }) {
     return (
       <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-2xl p-6 flex flex-col justify-between shadow-2xs">
         <div>
-          <div className="flex items-center justify-between text-[11px] font-mono-system font-bold text-[#7A8272] tracking-wider uppercase mb-4">
-            <span>TOTAL VOLUME MONITORED</span>
+          <div className="flex items-center justify-between text-xs font-semibold text-[#7A8272] uppercase mb-3">
+            <span>Total Volume Monitored</span>
             <ArrowLeftRight className="w-4 h-4 text-[#8B9A6E]" />
           </div>
-          <h2 className="font-editorial text-4xl font-normal text-[#2C3228] mb-3">
+          <h2 className="text-3xl font-bold text-[#2C3228] mb-2">
             {data?.volumeMonitored || "₹4.82 Cr"}
           </h2>
           <p className="text-xs text-[#6B7265] leading-relaxed">
@@ -34,11 +34,11 @@ export default function KpiCard({ type, data }) {
     return (
       <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-2xl p-6 flex flex-col justify-between shadow-2xs">
         <div>
-          <div className="flex items-center justify-between text-[11px] font-mono-system font-bold text-[#7A8272] tracking-wider uppercase mb-4">
-            <span>ANOMALIES FLAGGED</span>
+          <div className="flex items-center justify-between text-xs font-semibold text-[#7A8272] uppercase mb-3">
+            <span>Anomalies Flagged</span>
             <Power className="w-4 h-4 text-[#DC2626]" />
           </div>
-          <h2 className="font-editorial text-4xl font-normal text-[#2C3228] mb-3">
+          <h2 className="text-3xl font-bold text-[#2C3228] mb-2">
             {data?.anomaliesFlagged || "28 cases"}
           </h2>
           <p className="text-xs text-[#6B7265] leading-relaxed">
@@ -63,11 +63,11 @@ export default function KpiCard({ type, data }) {
   return (
     <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-2xl p-6 flex flex-col justify-between shadow-2xs">
       <div>
-        <div className="flex items-center justify-between text-[11px] font-mono-system font-bold text-[#7A8272] tracking-wider uppercase mb-4">
-          <span>AVG INVESTIGATION TIME</span>
+        <div className="flex items-center justify-between text-xs font-semibold text-[#7A8272] uppercase mb-3">
+          <span>Avg Investigation Time</span>
           <Clock className="w-4 h-4 text-[#8B9A6E]" />
         </div>
-        <h2 className="font-editorial text-4xl font-normal text-[#2C3228] mb-3">
+        <h2 className="text-3xl font-bold text-[#2C3228] mb-2">
           {data?.avgInvestigationTime || "4.2 mins"}
         </h2>
         <p className="text-xs text-[#6B7265] leading-relaxed">

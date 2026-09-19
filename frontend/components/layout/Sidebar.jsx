@@ -95,40 +95,6 @@ export default function Sidebar() {
 
       {/* Sidebar Footer */}
       <div className="space-y-4 pt-4 border-t border-[#EAE2D6]">
-        {/* System Health Box */}
-        <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-xl p-3.5 text-xs font-mono-system space-y-2">
-          <div className="flex items-center justify-between text-[10px] text-[#8E9688] font-bold tracking-wider uppercase border-b border-[#EAE2D6] pb-1.5">
-            <span>SYSTEM HEALTH</span>
-            <span className="bg-[#EAE2D6]/60 px-1.5 py-0.5 rounded text-[#555E4E]">
-              NPCI-L4
-            </span>
-          </div>
-
-          <div className="space-y-1.5 pt-0.5 text-[11px]">
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-2 text-[#6B7265]">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                API Status
-              </span>
-              <span className="font-semibold text-[#2C3228]">Online</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-2 text-[#6B7265]">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                ML Engine
-              </span>
-              <span className="font-semibold text-[#2C3228]">IForest-v2.4</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-2 text-[#6B7265]">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                Latency
-              </span>
-              <span className="font-semibold text-[#2C3228]">18ms</span>
-            </div>
-          </div>
-        </div>
-
         {/* Analyst Profile */}
         <div className="flex items-center justify-between px-1 py-1">
           <div className="flex items-center gap-2.5">

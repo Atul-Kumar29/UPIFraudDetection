@@ -18,18 +18,13 @@ export default function ScenarioSelector({ selected, onSelect, onRun, isRunning 
 
   return (
     <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-2xl p-6 shadow-2xs space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="font-editorial text-xl font-bold text-[#2C3228]">
-            Select Anomaly Vector Scenario
-          </h3>
-          <p className="text-xs text-[#6B7265] mt-0.5">
-            Choose a test scenario vector to inject payload into the live Isolation Forest model
-          </p>
-        </div>
-        <span className="font-mono-system text-[10px] font-bold text-[#8E9688]">
-          {scenarios.length} Scenarios Available (Live API)
-        </span>
+      <div>
+        <h3 className="font-editorial text-xl font-bold text-[#2C3228]">
+          Select Scenario
+        </h3>
+        <p className="text-xs text-[#6B7265] mt-0.5">
+          Choose a scenario to simulate transaction risk response.
+        </p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -47,13 +42,13 @@ export default function ScenarioSelector({ selected, onSelect, onRun, isRunning 
             >
               <span className="text-xs font-bold block">{sc.name}</span>
               <span
-                className={`text-[10px] font-mono-system mt-2 inline-block px-1.5 py-0.5 rounded ${
+                className={`text-[10px] font-medium mt-2 inline-block px-1.5 py-0.5 rounded ${
                   isSelected
                     ? "bg-white/20 text-white"
                     : "bg-[#EAE2D6] text-[#555E4E]"
                 }`}
               >
-                Risk: {sc.risk} (Base Score: {sc.score})
+                Risk: {sc.risk}
               </span>
             </button>
           );
@@ -67,7 +62,7 @@ export default function ScenarioSelector({ selected, onSelect, onRun, isRunning 
           className="px-6 py-3 rounded-xl bg-[#8B9A6E] hover:bg-[#78875C] text-white font-semibold text-xs transition-all shadow-xs flex items-center gap-2 cursor-pointer disabled:opacity-60"
         >
           <Play className="w-4 h-4 fill-white" />
-          <span>{isRunning ? "Running Backend Engine..." : `Run Scenario (${selected?.name || "Select Scenario"})`}</span>
+          <span>{isRunning ? "Evaluating..." : "Test Scenario"}</span>
         </button>
       </div>
     </div>

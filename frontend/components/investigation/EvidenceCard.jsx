@@ -1,7 +1,5 @@
 "use client";
 
-import { AlertTriangle, ShieldAlert, Cpu, MapPin, Clock, Smartphone } from "lucide-react";
-
 export function RiskScoreBadge({ score, level }) {
   const getColors = () => {
     if (score >= 85 || level === "CRITICAL")
@@ -29,32 +27,24 @@ export function RiskScoreBadge({ score, level }) {
 }
 
 export function EvidenceCard({ title, description, severity }) {
-  const getIcon = () => {
-    if (title.includes("AMOUNT")) return <AlertTriangle className="w-4 h-4 text-[#D97706]" />;
-    if (title.includes("DEVICE")) return <Smartphone className="w-4 h-4 text-[#DC2626]" />;
-    if (title.includes("LOCATION")) return <MapPin className="w-4 h-4 text-[#D97706]" />;
-    if (title.includes("VELOCITY")) return <Cpu className="w-4 h-4 text-[#DC2626]" />;
-    return <Clock className="w-4 h-4 text-[#65A30D]" />;
-  };
-
   const getSeverityBadge = () => {
     if (severity === "CRITICAL") {
       return (
-        <span className="px-2 py-0.5 rounded text-[10px] font-mono-system font-bold bg-[#FEE2E2] text-[#DC2626]">
-          CRITICAL SEVERITY
+        <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#FEE2E2] text-[#DC2626]">
+          Critical
         </span>
       );
     }
     if (severity === "HIGH") {
       return (
-        <span className="px-2 py-0.5 rounded text-[10px] font-mono-system font-bold bg-[#FEF3C7] text-[#D97706]">
-          HIGH SEVERITY
+        <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#FEF3C7] text-[#D97706]">
+          High
         </span>
       );
     }
     return (
-      <span className="px-2 py-0.5 rounded text-[10px] font-mono-system font-bold bg-[#EAE2D6] text-[#555E4E]">
-        MEDIUM SEVERITY
+      <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#EAE2D6] text-[#555E4E]">
+        Medium
       </span>
     );
   };
@@ -62,12 +52,9 @@ export function EvidenceCard({ title, description, severity }) {
   return (
     <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-xl p-4 space-y-2 shadow-2xs">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          {getIcon()}
-          <h4 className="font-mono-system text-xs font-bold text-[#2C3228] tracking-wide">
-            {title}
-          </h4>
-        </div>
+        <h4 className="font-mono-system text-xs font-bold text-[#2C3228] tracking-wide">
+          {title}
+        </h4>
         {getSeverityBadge()}
       </div>
       <p className="text-xs text-[#555E4E] leading-relaxed">{description}</p>

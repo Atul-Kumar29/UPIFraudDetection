@@ -1,6 +1,6 @@
 "use client";
 
-export default function BehaviouralSignalBreakdown({ signals, observation }) {
+export default function BehaviouralSignalBreakdown({ signals }) {
   const signalList = signals || [
     { name: "Amount Outlier", percentage: 38, color: "#8B9A6E" },
     { name: "Rapid Velocity", percentage: 29, color: "#8B9A6E" },
@@ -10,10 +10,10 @@ export default function BehaviouralSignalBreakdown({ signals, observation }) {
   ];
 
   return (
-    <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-2xl p-6 flex flex-col justify-between shadow-2xs h-full">
+    <div className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-2xl p-6 shadow-2xs">
       <div>
         {/* Title */}
-        <h3 className="font-editorial text-xl font-bold text-[#2C3228]">
+        <h3 className="text-lg font-bold text-[#2C3228]">
           Behavioural Signal Breakdown
         </h3>
         <p className="text-xs text-[#6B7265] mt-1 mb-6">
@@ -26,7 +26,7 @@ export default function BehaviouralSignalBreakdown({ signals, observation }) {
             <div key={sig.name} className="space-y-1.5">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-medium text-[#2C3228]">{sig.name}</span>
-                <span className="font-mono-system font-bold text-[#555E4E]">
+                <span className="font-bold text-[#555E4E]">
                   {sig.percentage}%
                 </span>
               </div>
@@ -42,13 +42,6 @@ export default function BehaviouralSignalBreakdown({ signals, observation }) {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Analyst Observation Box */}
-      <div className="bg-[#F4EFEA] border border-[#EAE2D6] rounded-xl p-3.5 mt-6 text-xs text-[#555E4E]">
-        <span className="font-bold text-[#2C3228]">Analyst Observation:</span>{" "}
-        {observation ||
-          "Most deviations this shift originate from high-ticket spikes on newly bound devices."}
       </div>
     </div>
   );

@@ -17,19 +17,11 @@ export default async function TransactionsPage({ searchParams }) {
 
   return (
     <AppShell>
-      {/* Header & Subtitle */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2">
-        <div className="space-y-1">
-          <p className="font-mono-system text-[10px] font-bold tracking-[0.2em] text-[#7A8272] uppercase">
-            PAYLOAD FEED • Switch Node 03
-          </p>
-          <h1 className="font-editorial text-4xl lg:text-5xl font-bold text-[#2C3228] tracking-tight">
-            Transaction Sentinel Feed
-          </h1>
-          <p className="text-xs lg:text-sm text-[#6B7265] max-w-2xl leading-relaxed">
-            Monitor incoming ISO 20022 payloads or run live payment scenario simulations.
-          </p>
-        </div>
+      {/* Header */}
+      <div className="flex items-center justify-between gap-4 pb-2">
+        <h1 className="text-2xl lg:text-3xl font-bold text-[#2C3228]">
+          Transactions
+        </h1>
 
         {/* View mode toggle tabs */}
         <div className="flex items-center gap-1.5 p-1 bg-[#FAF7F2] border border-[#EAE2D6] rounded-xl text-xs shrink-0">

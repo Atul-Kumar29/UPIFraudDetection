@@ -22,16 +22,13 @@ export default function SimulatorPage() {
   return (
     <AppShell>
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2">
-        <div className="space-y-1">
-          <p className="font-mono-system text-[10px] font-bold tracking-[0.2em] text-[#7A8272] uppercase">
-            OPERATIONAL ENGINE TESTBED
-          </p>
+      <div className="flex items-center justify-between gap-4 pb-2">
+        <div>
           <h1 className="font-editorial text-4xl lg:text-5xl font-bold text-[#2C3228] tracking-tight">
-            Fraud Model Simulator
+            Simulator
           </h1>
-          <p className="text-xs lg:text-sm text-[#6B7265] max-w-2xl leading-relaxed">
-            Test real-time Isolation Forest model sensitivity and rule engine response across synthetic anomaly vectors.
+          <p className="text-xs lg:text-sm text-[#6B7265] max-w-2xl leading-relaxed mt-1">
+            Test transaction scenarios to simulate risk evaluation.
           </p>
         </div>
       </div>

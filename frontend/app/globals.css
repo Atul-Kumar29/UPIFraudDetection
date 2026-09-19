@@ -31,17 +31,17 @@
   body {
     background-color: var(--bg-warm);
     color: var(--text-primary);
-    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 }
 
 .font-editorial {
-  font-family: var(--font-newsreader), Georgia, Cambria, serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 .font-mono-system {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 /* Custom subtle scrollbar */

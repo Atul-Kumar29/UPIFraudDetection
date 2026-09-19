@@ -114,14 +114,6 @@ export default function PaymentCard({ scenario, onPay, isProcessing }) {
             </span>
           </button>
         </div>
-
-        {/* Security Badge Footer */}
-        <div className="mt-6 pt-5 border-t border-[#EAE2D6] text-center">
-          <div className="flex items-center justify-center gap-1.5 text-[11px] font-mono-system text-[#7A8272]">
-            <Lock className="w-3.5 h-3.5 text-[#8B9A6E]" />
-            <span>Secured by UPI • NPCI Real-time Switch</span>
-          </div>
-        </div>
       </div>
 
       {/* Real-time evaluation response toast if triggered */}
@@ -150,12 +142,6 @@ export default function PaymentCard({ scenario, onPay, isProcessing }) {
           </p>
         </div>
       )}
-
-      {/* Explanatory text under payment card */}
-      <p className="text-xs text-[#7A8272] text-center max-w-sm mx-auto mt-4 font-mono-system leading-relaxed">
-        Initiate or review transactions in real-time. Live payloads flow directly to
-        UPI Sentinel anomaly detection.
-      </p>
     </div>
   );
 }
