@@ -10,7 +10,6 @@ import {
   FlaskConical,
   BarChart3,
   Lock,
-  Shield,
   Menu,
   X,
 } from "lucide-react";
@@ -38,16 +37,18 @@ export default function Sidebar() {
     <div className="flex flex-col h-full justify-between p-5 select-none">
       {/* Brand Header */}
       <div>
-        <div className="flex items-center gap-3 px-2 py-1 mb-8">
-          <div className="w-9 h-9 rounded-xl bg-[#8B9A6E]/15 border border-[#8B9A6E]/30 flex items-center justify-center text-[#8B9A6E]">
-            <Shield className="w-5 h-5 fill-[#8B9A6E]/20" />
-          </div>
+        <div className="flex items-center gap-3 px-1 py-1 mb-7">
+          <img
+            src="/fraudlens-logo.png"
+            alt="FraudLens Logo"
+            className="w-10 h-10 object-contain rounded-xl shadow-xs shrink-0"
+          />
           <div>
             <h1 className="font-editorial text-xl font-bold tracking-tight text-[#2C3228] leading-none">
-              UPI Sentinel
+              FraudLens
             </h1>
-            <p className="font-mono-system text-[9px] tracking-[0.22em] font-semibold text-[#7A8272] uppercase mt-1">
-              FRAUD INTELLIGENCE
+            <p className="font-mono-system text-[9px] tracking-[0.18em] font-semibold text-[#7A8272] uppercase mt-1">
+              SAFER PAYMENTS
             </p>
           </div>
         </div>

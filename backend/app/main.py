@@ -167,26 +167,6 @@ TRANSACTIONS_DB = [
         "merchantBankingName": "GLOBAL TRADING VENTURES",
         "evidence": [],
     },
-    {
-        "id": "TX10280",
-        "rrn": "329810482800",
-        "user": "Winzo Gaming",
-        "vpa": "winzogaming@upi",
-        "amount": 9800,
-        "amountFormatted": "₹9,800",
-        "triggerSignal": "High velocity midnight burst",
-        "riskLevel": "MEDIUM",
-        "riskScore": 58,
-        "status": "Resolved",
-        "timestamp": "14:15:30 IST",
-        "date": "24 Oct 2026",
-        "device": "Redmi Note 13",
-        "location": "Delhi, DL",
-        "merchant": "Winzo Games India",
-        "merchantVpa": "pay@winzo",
-        "merchantBankingName": "WINZO GAMES PVT LTD",
-        "evidence": [],
-    },
 ]
 
 DEMO_SCENARIOS = [

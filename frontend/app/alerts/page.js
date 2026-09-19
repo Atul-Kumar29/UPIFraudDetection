@@ -1,10 +1,9 @@
 import AppShell from "../../components/layout/AppShell";
 import { fetchTransactions } from "../../lib/api";
 import Link from "next/link";
-import { AlertTriangle } from "lucide-react";
 
 export const metadata = {
-  title: "Alerts • UPI Sentinel",
+  title: "Alerts • FraudLens",
   description: "Review flagged fraud alerts requiring attention.",
 };
 
@@ -61,37 +60,29 @@ export default async function AlertsPage() {
               key={alert.id}
               className="bg-[#FAF7F2] border border-[#EAE2D6] rounded-2xl p-5 hover:border-[#8B9A6E]/60 transition-all shadow-2xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
             >
-              <div className="flex items-start gap-4">
-                <div
-                  className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 ${style.bg} ${style.border} ${style.text}`}
-                >
-                  <AlertTriangle className="w-5 h-5" />
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-bold text-[#2C3228] text-sm">
+                    {alert.user}
+                  </span>
+                  <span className="font-mono-system text-[10px] text-[#7A8272] bg-[#EAE2D6]/60 px-1.5 py-0.5 rounded">
+                    {alert.id}
+                  </span>
+                  <span
+                    className={`text-[10px] font-semibold px-2 py-0.5 rounded ${style.bg} ${style.text}`}
+                  >
+                    {style.label}
+                  </span>
                 </div>
 
-                <div className="space-y-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-bold text-[#2C3228] text-sm">
-                      {alert.user}
-                    </span>
-                    <span className="font-mono-system text-[10px] text-[#7A8272] bg-[#EAE2D6]/60 px-1.5 py-0.5 rounded">
-                      {alert.id}
-                    </span>
-                    <span
-                      className={`text-[10px] font-semibold px-2 py-0.5 rounded ${style.bg} ${style.text}`}
-                    >
-                      {style.label}
-                    </span>
-                  </div>
+                <p className="text-xs text-[#555E4E]">
+                  Reason: <span className="font-medium text-[#2C3228]">{alert.triggerSignal}</span>
+                </p>
 
-                  <p className="text-xs text-[#555E4E]">
-                    Reason: <span className="font-medium text-[#2C3228]">{alert.triggerSignal}</span>
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-4 text-[11px] text-[#7A8272] pt-1">
-                    <span>Amount: <strong className="text-[#2C3228]">{alert.amountFormatted}</strong></span>
-                    <span>Merchant: {alert.merchant}</span>
-                    <span>Time: {alert.timestamp}</span>
-                  </div>
+                <div className="flex flex-wrap items-center gap-4 text-[11px] text-[#7A8272] pt-1">
+                  <span>Amount: <strong className="text-[#2C3228]">{alert.amountFormatted}</strong></span>
+                  <span>Merchant: {alert.merchant}</span>
+                  <span>Time: {alert.timestamp}</span>
                 </div>
               </div>
 
