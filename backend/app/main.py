@@ -1,7 +1,40 @@
+from __future__ import annotations
+
+from collections import defaultdict
+from datetime import datetime
+from typing import Any, Dict, List, Optional
+import pandas as pd
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional, List, Dict, Any
+
+try:
+    from ml.features import build_behavioural_features
+    from ml.generator import build_user_profiles
+    from ml.predict import predict_anomaly
+    from simulator.scenarios import (
+        generate_account_takeover,
+        generate_high_amount_transaction,
+        generate_location_anomaly,
+        generate_new_device_transaction,
+        generate_normal_transaction,
+        generate_unusual_time_transaction,
+        generate_velocity_attack,
+    )
+    ML_ENGINE_AVAILABLE = True
+except ImportError:
+    ML_ENGINE_AVAILABLE = False
+
+USER_HISTORY: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+
+def _normalize_timestamp(value: Optional[datetime]) -> pd.Timestamp:
+    if value is None:
+        return pd.Timestamp.now().tz_localize(None)
+    ts = pd.Timestamp(value)
+    if ts.tzinfo is not None:
+        ts = ts.tz_convert("UTC").tz_localize(None)
+    return ts
 
 app = FastAPI(
     title="UPI Sentinel Behavioural Fraud Detection API",
@@ -242,6 +275,12 @@ class SimulationRequest(BaseModel):
     location: Optional[str] = "Bengaluru"
     timestamp: Optional[str] = "03:17 AM"
 
+class ScenarioRequest(BaseModel):
+    user_id: Optional[str] = "U001"
+    scenario: Optional[str] = "normal"
+    timestamp: Optional[datetime] = None
+    seed: int = 42
+
 @app.get("/")
 def root():
     return {"message": "UPI Sentinel Fraud Intelligence API", "status": "active"}
@@ -284,7 +323,6 @@ def get_simulator_scenarios():
 
 @app.post("/api/simulator/run")
 def run_simulation(req: SimulationRequest):
-    # Simulated Isolation Forest execution
     score = 87
     risk_level = "CRITICAL"
     if req.scenarioId == "normal":
@@ -312,13 +350,13 @@ def run_simulation(req: SimulationRequest):
         "inferenceLatencyMs": 14,
         "deviations": [
             {
-                "title": f"Amount Spike: ₹{req.amount:,.0f}",
+                "title": f"Amount Spike: ₹{req.amount:,.0f}" if req.amount else "Amount Spike",
                 "points": 32,
                 "detail": "12.4x historical baseline (₹1,240 · 4.8σ outlier)",
                 "type": "spike",
             },
             {
-                "title": f"Unrecognized Hardware: {req.deviceId}",
+                "title": f"Unrecognized Hardware: {req.deviceId}" if req.deviceId else "Unrecognized Hardware",
                 "points": 25,
                 "detail": "Hardware signature not in user's 2 registered handsets",
                 "type": "device",
@@ -341,7 +379,7 @@ def run_simulation(req: SimulationRequest):
           {"step": "Ingested", "status": "Completed", "detail": "Switch feed"},
           {"step": "Vectors", "status": "Completed", "detail": "15 features"},
           {"step": "Rules", "status": "Completed", "detail": "Sliding window"},
-          {"step": "Scored", "status": "Completed", "detail": f"Depth 4.1"},
+          {"step": "Scored", "status": "Completed", "detail": "Depth 4.1"},
         ]
     }
 
